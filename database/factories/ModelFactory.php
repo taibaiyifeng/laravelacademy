@@ -11,11 +11,14 @@
 |
 */
 
-$factory->define(App\User::class, function ($faker) {
+$factory->define(App\Post::class, function ($faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->email,
-        'password' => str_random(10),
-        'remember_token' => str_random(10),
+        // 'name' => $faker->name,
+        // 'email' => $faker->email,
+        // 'password' => str_random(10),
+        // 'remember_token' => str_random(10),
+    	'title' => $faker->sentence(mt_rand(3,10)),
+    	'content' => join("\n\n",$faker->paragraphs(mt_rand(3,6))),
+    	'published_at' => $faker->dateTimeBetween('-1 month','+3 days'),
     ];
 });
