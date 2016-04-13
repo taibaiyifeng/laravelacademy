@@ -12,8 +12,13 @@ class PostTableSeeder extends Seeder
     public function run()
     {
       
-        	App\Post::truncate();
-        	factory(App\Post::class,20)->create();
+        	// App\Post::truncate();
+        	// factory(App\Post::class,20)->create();
+        $user = new App\User();
+        $user->name = 'admin';
+        $user->email = 'taibaiyifeng@outlook.com';
+        $user->password = bcrypt('admin');
+        $user->save();
         
     }
 }
